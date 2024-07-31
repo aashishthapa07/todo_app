@@ -24,13 +24,13 @@ class Task extends HiveObject {
   final String subTitle;
 
   @HiveField(3)
-  DateTime createdAtTime;
+  DateTime createdAtTime; // Keeping it final since it shouldn't change
 
   @HiveField(4)
-  DateTime createdAtDate;
+  DateTime createdAtDate; // Keeping it final since it shouldn't change
 
   @HiveField(5)
-  final bool isCompleted;
+  bool isCompleted;
 
   factory Task.create({
     required String title,
@@ -43,7 +43,8 @@ class Task extends HiveObject {
         title: title,
         subTitle: subTitle,
         createdAtTime: createdAtTime ?? DateTime.now(),
-        createdAtDate: createdAtTime ?? DateTime.now(),
-        isCompleted: true,
+        createdAtDate:
+            createdAtDate ?? DateTime.now(), // Ensure this is set correctly
+        isCompleted: false, // Default to false for new tasks
       );
 }

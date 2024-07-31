@@ -56,36 +56,38 @@ class _CustomSliderDrawerState extends State<CustomSliderDrawer> {
             "Flutter DEV",
             style: textTheme.displaySmall,
           ),
-          Container(
-            margin: const EdgeInsets.symmetric(
-              vertical: 30,
-              horizontal: 10,
-            ),
-            width: double.infinity,
-            height: height * 0.3,
-            child: ListView.builder(
-              itemCount: widget.icons.length,
-              itemBuilder: (BuildContext context, int index) {
-                return InkWell(
-                  onTap: () {
-                    print('${widget.texts[index]} Item Tapped!');
-                  },
-                  child: Container(
-                    margin: const EdgeInsets.all(3),
-                    child: ListTile(
-                      leading: Icon(
-                        widget.icons[index],
-                        color: Colors.white,
-                        size: 30,
-                      ),
-                      title: Text(
-                        widget.texts[index],
-                        style: const TextStyle(color: Colors.white),
+          Expanded(
+            child: Container(
+              margin: const EdgeInsets.symmetric(
+                vertical: 30,
+                horizontal: 10,
+              ),
+              width: double.infinity,
+              height: height * 0.29,
+              child: ListView.builder(
+                itemCount: widget.icons.length,
+                itemBuilder: (BuildContext context, int index) {
+                  return InkWell(
+                    onTap: () {
+                      print('${widget.texts[index]} Item Tapped!');
+                    },
+                    child: Container(
+                      margin: const EdgeInsets.all(3),
+                      child: ListTile(
+                        leading: Icon(
+                          widget.icons[index],
+                          color: Colors.white,
+                          size: 30,
+                        ),
+                        title: Text(
+                          widget.texts[index],
+                          style: const TextStyle(color: Colors.white),
+                        ),
                       ),
                     ),
-                  ),
-                );
-              },
+                  );
+                },
+              ),
             ),
           ),
         ],

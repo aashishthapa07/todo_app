@@ -23,11 +23,11 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final GlobalKey<SliderDrawerState> drawerKey = GlobalKey<SliderDrawerState>();
-
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
     final width = MediaQuery.of(context).size.width;
+
     final base = BaseWidget.of(context);
 
     TextTheme textTheme = Theme.of(context).textTheme;
@@ -35,13 +35,14 @@ class _HomePageState extends State<HomePage> {
       valueListenable: base.dataStore.listenToTask(),
       builder: (ctx, Box<Task> box, Widget? child) {
         List<Task> tasks = box.values.toList();
+        print("Tasks: ${tasks.length}"); // Debugging information
         return Scaffold(
           backgroundColor: Colors.white,
           floatingActionButton: Fab(width: width, height: height),
           body: SliderDrawer(
             key: drawerKey,
             isDraggable: false,
-            animationDuration: 1000,
+            animationDuration: 1007,
             slider: CustomSliderDrawer(),
             appBar: HomeAppBar(drawerKey: drawerKey),
             child: _buildHomeBody(
